@@ -18,7 +18,7 @@ const votes = [];
 
 function Product(name) {
   this.name = name;
-  this.path = 'img/' + name + '.jpg';
+  this.path = `img/${name}.jpg`;
   this.votes = 0;
   this.views = 0;
   allProducts.push(this);
@@ -36,11 +36,20 @@ function displayPics(){
     }
     console.log(rando);
   }
+<<<<<<< HEAD
   // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the constiable declaration from `const to `const`.
   // PUT YOUR RESPONSE IN THIS COMMENT
   console.log(viewed);
 
   for (let i = 0; i < 3; i++){
+=======
+  // console.log(rando);
+  // TODO: In a sentence or two, explain why the previous line of code threw an error when we changed the variable declaration from `var to `let`.
+  // It threw an error because it is not scoped within the same block of code.
+  console.log(viewed);
+
+  for (var i = 0; i < 3; i++){
+>>>>>>> 12a63f766fd2d5c1787dc3c20868b7937c62a79a
     const temp = viewed.shift();
     pics[i].src = allProducts[temp].path;
     pics[i].id = allProducts[temp].name;
@@ -62,7 +71,7 @@ function handleClick(event) {
   for(let i = 0; i < names.length; i++){
     if(event.target.id === allProducts[i].name) {
       allProducts[i].votes += 1;
-      console.log(event.target.id + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views');
+      console.log(`${event.target.id} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`);
     }
   }
   localStorage.busmall = JSON.stringify(allProducts);
@@ -71,9 +80,15 @@ function handleClick(event) {
 }
 
 function showList() {
+<<<<<<< HEAD
   for(let i = 0; i < allProducts.length; i++) {
     const liEl = document.createElement('li');
     liEl.textContent = allProducts[i].name + ' has ' + allProducts[i].votes + ' votes in ' + allProducts[i].views + ' views';
+=======
+  for(var i = 0; i < allProducts.length; i++) {
+    const liEl = document.createElement('li');
+    liEl.textContent = `${allProducts[i].name} has ${allProducts[i].votes} votes in ${allProducts[i].views} views`;
+>>>>>>> 12a63f766fd2d5c1787dc3c20868b7937c62a79a
     list.appendChild(liEl);
   }
 }
